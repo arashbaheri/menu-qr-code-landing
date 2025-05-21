@@ -17,7 +17,7 @@ const features = [
   {
     icon: <Package className="h-10 w-10 text-brand-600" />,
     title: 'Custom Branding',
-    description: 'Customize your digital menu with your restaurant's logo, colors, and unique style.',
+    description: 'Customize your digital menu with your restaurant\'s logo, colors, and unique style.',
   },
   {
     icon: <User className="h-10 w-10 text-brand-600" />,
