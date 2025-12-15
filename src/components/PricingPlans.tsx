@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -6,48 +5,48 @@ import { Switch } from '@/components/ui/switch';
 
 const pricingPlans = [
   {
-    name: 'Basic',
-    description: 'Perfect for small cafes and food trucks',
-    monthlyPrice: 29,
-    yearlyPrice: 290,
+    name: 'پایه',
+    description: 'مناسب برای کافه‌ها و فودتراک‌های کوچک',
+    monthlyPrice: '۲۹۰,۰۰۰',
+    yearlyPrice: '۲,۹۰۰,۰۰۰',
     features: [
-      'Unlimited QR code generation',
-      'Basic menu customization',
-      'Menu photo uploads (up to 25)',
-      'Email support',
-      'Regular menu updates',
+      'تولید QR کد نامحدود',
+      'سفارشی‌سازی منوی پایه',
+      'آپلود عکس منو (تا ۲۵ عکس)',
+      'پشتیبانی ایمیلی',
+      'به‌روزرسانی منظم منو',
     ],
     highlighted: false,
   },
   {
-    name: 'Professional',
-    description: 'Ideal for established restaurants',
-    monthlyPrice: 79,
-    yearlyPrice: 790,
+    name: 'حرفه‌ای',
+    description: 'ایده‌آل برای رستوران‌های معتبر',
+    monthlyPrice: '۷۹۰,۰۰۰',
+    yearlyPrice: '۷,۹۰۰,۰۰۰',
     features: [
-      'Everything in Basic, plus:',
-      'Advanced menu customization',
-      'Unlimited photo uploads',
-      'Menu categories and filters',
-      'Analytics dashboard',
-      'Priority support',
-      'Daily menu specials',
+      'همه امکانات پایه، به‌علاوه:',
+      'سفارشی‌سازی پیشرفته منو',
+      'آپلود عکس نامحدود',
+      'دسته‌بندی و فیلتر منو',
+      'داشبورد تحلیلی',
+      'پشتیبانی اولویت‌دار',
+      'غذاهای ویژه روزانه',
     ],
     highlighted: true,
   },
   {
-    name: 'Enterprise',
-    description: 'For restaurant groups and chains',
-    monthlyPrice: 199,
-    yearlyPrice: 1990,
+    name: 'سازمانی',
+    description: 'برای گروه‌ها و زنجیره‌های رستورانی',
+    monthlyPrice: '۱,۹۹۰,۰۰۰',
+    yearlyPrice: '۱۹,۹۰۰,۰۰۰',
     features: [
-      'Everything in Professional, plus:',
-      'Multiple location management',
-      'Branded QR codes',
-      'API access',
-      'Multi-language support',
-      'Dedicated account manager',
-      'Custom integrations',
+      'همه امکانات حرفه‌ای، به‌علاوه:',
+      'مدیریت چند شعبه',
+      'QR کدهای برندینگ شده',
+      'دسترسی API',
+      'پشتیبانی چندزبانه',
+      'مدیر حساب اختصاصی',
+      'یکپارچه‌سازی سفارشی',
     ],
     highlighted: false,
   },
@@ -57,19 +56,19 @@ const PricingPlans = () => {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section id="pricing" className="section bg-gray-50">
+    <section id="pricing" className="section bg-secondary/30">
       <div className="container">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Simple, Transparent Pricing
+            تعرفه‌های ساده و شفاف
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Choose the plan that fits your restaurant's needs, with no hidden fees.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            پلنی را انتخاب کنید که با نیازهای رستوران شما مطابقت دارد، بدون هزینه‌های پنهان.
           </p>
-          <div className="flex items-center justify-center mt-8">
-            <span className={`mr-3 ${!isYearly ? 'font-semibold text-brand-700' : 'text-gray-500'}`}>Monthly</span>
+          <div className="flex items-center justify-center mt-8 gap-3">
+            <span className={`${!isYearly ? 'font-semibold text-primary' : 'text-muted-foreground'}`}>ماهانه</span>
             <Switch checked={isYearly} onCheckedChange={setIsYearly} />
-            <span className={`ml-3 ${isYearly ? 'font-semibold text-brand-700' : 'text-gray-500'}`}>Yearly <span className="text-sm text-green-600">(Save 20%)</span></span>
+            <span className={`${isYearly ? 'font-semibold text-primary' : 'text-muted-foreground'}`}>سالانه <span className="text-sm text-green-600">(۲۰٪ تخفیف)</span></span>
           </div>
         </div>
 
@@ -77,12 +76,12 @@ const PricingPlans = () => {
           {pricingPlans.map((plan, index) => (
             <Card 
               key={index} 
-              className={`border ${plan.highlighted ? 'border-brand-500 shadow-lg shadow-brand-100' : 'border-gray-200 shadow-sm'} animate-slide-up relative`}
+              className={`border ${plan.highlighted ? 'border-primary shadow-lg shadow-primary/10' : 'border-border shadow-sm'} animate-slide-up relative`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {plan.highlighted && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                  Most Popular
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+                  محبوب‌ترین
                 </div>
               )}
               <CardHeader>
@@ -92,14 +91,14 @@ const PricingPlans = () => {
               <CardContent>
                 <div className="mb-8">
                   <p className="text-4xl font-bold">
-                    ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                    <span className="text-base font-normal text-gray-500">/{isYearly ? 'year' : 'month'}</span>
+                    {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                    <span className="text-base font-normal text-muted-foreground"> تومان/{isYearly ? 'سال' : 'ماه'}</span>
                   </p>
                 </div>
                 <ul className="space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
-                      <svg className="h-6 w-6 text-brand-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-6 w-6 text-primary ml-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span>{feature}</span>
@@ -109,10 +108,10 @@ const PricingPlans = () => {
               </CardContent>
               <CardFooter>
                 <Button 
-                  className={`w-full ${plan.highlighted ? 'bg-brand-600 hover:bg-brand-700' : ''}`}
+                  className="w-full"
                   variant={plan.highlighted ? 'default' : 'outline'}
                 >
-                  Choose {plan.name}
+                  انتخاب {plan.name}
                 </Button>
               </CardFooter>
             </Card>
@@ -120,11 +119,11 @@ const PricingPlans = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-gray-600 mb-4">
-            Not sure which plan is right for you? Contact us for a personalized recommendation.
+          <p className="text-muted-foreground mb-4">
+            مطمئن نیستید کدام پلن برای شما مناسب است؟ با ما تماس بگیرید.
           </p>
-          <Button variant="link" className="text-brand-600">
-            Contact Sales
+          <Button variant="link" className="text-primary">
+            تماس با فروش
           </Button>
         </div>
       </div>
