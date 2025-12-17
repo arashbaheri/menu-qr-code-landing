@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
+import melineLogo from '@/assets/meline-logo.svg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <nav className="py-4 border-b bg-background/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="container">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center gap-3">
+            <img src={melineLogo} alt="ملاین" className="h-10 w-10" />
             <a href="#" className="text-xl font-bold text-primary">ملاین خدمات آنلاین کافه و رستوران</a>
           </div>
 
@@ -20,8 +26,10 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline">ورود</Button>
-            <Button>شروع رایگان</Button>
+            <Button variant="outline" asChild>
+              <a href="https://panel.me-line.ir" target="_blank" rel="noopener noreferrer">ورود به حساب کاربری</a>
+            </Button>
+            <Button onClick={scrollToContact}>شروع رایگان</Button>
           </div>
 
           <div className="md:hidden">
@@ -38,8 +46,10 @@ const Navbar = () => {
               <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMenuOpen(false)}>تعرفه‌ها</a>
               <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors py-2" onClick={() => setIsMenuOpen(false)}>تماس با ما</a>
               <div className="flex flex-col gap-2 pt-2">
-                <Button variant="outline">ورود</Button>
-                <Button>شروع رایگان</Button>
+                <Button variant="outline" asChild>
+                  <a href="https://panel.me-line.ir" target="_blank" rel="noopener noreferrer">ورود به حساب کاربری</a>
+                </Button>
+                <Button onClick={() => { setIsMenuOpen(false); scrollToContact(); }}>شروع رایگان</Button>
               </div>
             </div>
           </div>
