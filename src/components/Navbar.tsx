@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="container">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="#" className="text-2xl font-bold text-primary">ملاین</a>
+            <a href="#" className="text-xl font-bold text-primary">ملاین خدمات آنلاین کافه و رستوران</a>
           </div>
 
           <div className="hidden md:flex items-center gap-8">

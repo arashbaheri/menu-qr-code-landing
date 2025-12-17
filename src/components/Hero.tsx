@@ -14,8 +14,10 @@ const Hero = () => {
               تجربه منوی خود را با QR کدهای قابل اسکن متحول کنید. به‌راحتی پیشنهادات خود را به‌روز کنید، سفارش آنلاین بگیرید و مشتریان خود را خوشحال کنید.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
-              <Button size="lg" className="text-base">شروع رایگان</Button>
-              <Button size="lg" variant="outline" className="text-base">مشاهده دمو</Button>
+              <Button size="lg" className="text-base" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>شروع رایگان</Button>
+              <Button size="lg" variant="outline" className="text-base" asChild>
+                <a href="https://demo.me-line.ir" target="_blank" rel="noopener noreferrer">مشاهده دمو</a>
+              </Button>
             </div>
             <div className="pt-6 text-sm text-muted-foreground">
               <p>مورد اعتماد بیش از ۱۰۰۰ رستوران و کافه</p>

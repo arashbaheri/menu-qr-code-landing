@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
-import { Mail, User, Package } from 'lucide-react';
+import { Mail, User, Package, Phone } from 'lucide-react';
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -12,6 +12,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     company: '',
     message: '',
   });
@@ -26,19 +27,30 @@ const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      toast({
-        title: "پیام ارسال شد!",
-        description: "در اسرع وقت با شما تماس خواهیم گرفت.",
+      const response = await fetch('https://submit.me-line.ir', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        message: '',
-      });
+
+      if (response.ok) {
+        toast({
+          title: "پیام ارسال شد!",
+          description: "در اسرع وقت با شما تماس خواهیم گرفت.",
+        });
+        
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          message: '',
+        });
+      } else {
+        throw new Error('Failed to submit');
+      }
     } catch (error) {
       toast({
         title: "خطایی رخ داد",
@@ -76,6 +88,18 @@ const ContactForm = () => {
                         placeholder="نام شما"
                         className="pr-10"
                         value={formData.name}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="relative">
+                      <Phone className="h-5 w-5 text-muted-foreground absolute right-3 top-1/2 transform -translate-y-1/2" />
+                      <Input
+                        type="tel"
+                        name="phone"
+                        placeholder="شماره تماس"
+                        className="pr-10"
+                        value={formData.phone}
                         onChange={handleChange}
                         required
                       />
