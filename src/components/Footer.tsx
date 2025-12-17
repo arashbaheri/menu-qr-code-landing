@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
-            <a href="#" className="text-2xl font-bold mb-4 inline-block">ملاین</a>
+            <a href="#" className="text-xl font-bold mb-4 inline-block">ملاین خدمات آنلاین کافه و رستوران</a>
             <p className="text-background/70 mb-6 max-w-md">
               متحول کردن تجربه رستوران با منوهای دیجیتال مبتنی بر فناوری QR کد. منوی خود را در لحظه به‌روز کنید و تجربه‌ای بدون تماس برای مشتریان خود فراهم کنید.
             </p>
