@@ -98,7 +98,8 @@ const ContactForm = () => {
                         type="tel"
                         name="phone"
                         placeholder="شماره تماس"
-                        className="pr-10"
+                        className="pr-10 text-right"
+                        dir="ltr"
                         value={formData.phone}
                         onChange={handleChange}
                         required
