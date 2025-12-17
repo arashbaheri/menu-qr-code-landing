@@ -8,10 +8,10 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
           <div className="w-full lg:w-1/2 space-y-6 animate-fade-in text-center lg:text-right">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              منوی دیجیتال برای <span className="gradient-text">رستوران‌های مدرن</span>
+              ملاین، منوی دیجیتال برای <span className="gradient-text">رستوران‌های مدرن</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              تجربه منوی خود را با QR کدهای قابل اسکن متحول کنید. به‌راحتی پیشنهادات خود را به‌روز کنید، عکس‌ها را نمایش دهید و مشتریان خود را خوشحال کنید.
+              تجربه منوی خود را با QR کدهای قابل اسکن متحول کنید. به‌راحتی پیشنهادات خود را به‌روز کنید، سفارش آنلاین بگیرید و مشتریان خود را خوشحال کنید.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
               <Button size="lg" className="text-base">شروع رایگان</Button>
