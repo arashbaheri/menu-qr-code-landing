@@ -1,60 +1,59 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
 
 const pricingPlans = [
   {
-    name: 'پایه',
-    description: 'مناسب برای کافه‌ها و فودتراک‌های کوچک',
-    monthlyPrice: '۲۹۰,۰۰۰',
-    yearlyPrice: '۲,۹۰۰,۰۰۰',
+    name: 'منوی پایه',
+    description: 'مناسب برای شروع کار با منوی دیجیتال',
+    monthlyPrice: '۴۶۰,۰۰۰',
     features: [
-      'تولید QR کد نامحدود',
-      'سفارشی‌سازی منوی پایه',
-      'آپلود عکس منو (تا ۲۵ عکس)',
-      'پشتیبانی ایمیلی',
-      'به‌روزرسانی منظم منو',
+      'دسترسی از طریق QRcode',
+      'امکان درج و ویرایش اطلاعات و قیمت‌ها',
+      'ارائه فایل QRcode جهت چاپ',
+      'امکان درج لوگو کسب و کار',
+      'ارائه پنل مدیریت محصولات و تصاویر',
+      'آموزش اولیه کار با پنل',
+      'امکان درج آدرس شبکه‌های اجتماعی',
+      'امکان درج آدرس و شماره تماس',
     ],
     highlighted: false,
   },
   {
-    name: 'حرفه‌ای',
-    description: 'ایده‌آل برای رستوران‌های معتبر',
-    monthlyPrice: '۷۹۰,۰۰۰',
-    yearlyPrice: '۷,۹۰۰,۰۰۰',
+    name: 'منوی پیشرفته',
+    description: 'ایده‌آل برای رستوران‌های فعال',
+    monthlyPrice: '۷۳۰,۰۰۰',
     features: [
-      'همه امکانات پایه، به‌علاوه:',
-      'سفارشی‌سازی پیشرفته منو',
-      'آپلود عکس نامحدود',
-      'دسته‌بندی و فیلتر منو',
-      'داشبورد تحلیلی',
-      'پشتیبانی اولویت‌دار',
-      'غذاهای ویژه روزانه',
+      'تمامی قابلیت‌های منوی پایه',
+      'امکان ثبت سفارش آنلاین',
+      'پرینت فاکتور مشتری',
+      'فراخوان گارسون',
+      'چاپ QRcode برای هر میز',
+      'سفارش‌گیر گارسون',
+      'اطلاع از بازدید صفحه رستوران شما',
+      'طراحی منو نسبت به کانسپت مجموعه',
     ],
     highlighted: true,
   },
   {
-    name: 'سازمانی',
-    description: 'برای گروه‌ها و زنجیره‌های رستورانی',
-    monthlyPrice: '۱,۹۹۰,۰۰۰',
-    yearlyPrice: '۱۹,۹۰۰,۰۰۰',
+    name: 'منوی حرفه‌ای',
+    description: 'برای کسب‌وکارهای حرفه‌ای و زنجیره‌ای',
+    monthlyPrice: '۹۸۰,۰۰۰',
     features: [
-      'همه امکانات حرفه‌ای، به‌علاوه:',
-      'مدیریت چند شعبه',
-      'QR کدهای برندینگ شده',
-      'دسترسی API',
-      'پشتیبانی چندزبانه',
-      'مدیر حساب اختصاصی',
-      'یکپارچه‌سازی سفارشی',
+      'تمامی قابلیت‌های منوی پیشرفته',
+      'دامنه اختصاصی با نام کسب و کار',
+      'تخمین سود با هوش مصنوعی',
+      'امکان تعریف انواع تخفیفات',
+      'امکان اتصال به درگاه پرداخت اختصاصی',
+      'نظرسنجی هوشمند',
+      'باشگاه مشتریان',
+      'امکان چاپ کارت هدیه و تخفیف',
     ],
     highlighted: false,
   },
 ];
 
 const PricingPlans = () => {
-  const [isYearly, setIsYearly] = useState(false);
-
   return (
     <section id="pricing" className="section bg-secondary/30">
       <div className="container">
@@ -65,11 +64,6 @@ const PricingPlans = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             پلنی را انتخاب کنید که با نیازهای رستوران شما مطابقت دارد، بدون هزینه‌های پنهان.
           </p>
-          <div className="flex items-center justify-center mt-8 gap-3">
-            <span className={`${!isYearly ? 'font-semibold text-primary' : 'text-muted-foreground'}`}>ماهانه</span>
-            <Switch checked={isYearly} onCheckedChange={setIsYearly} />
-            <span className={`${isYearly ? 'font-semibold text-primary' : 'text-muted-foreground'}`}>سالانه <span className="text-sm text-green-600">(۲۰٪ تخفیف)</span></span>
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -91,8 +85,8 @@ const PricingPlans = () => {
               <CardContent>
                 <div className="mb-8">
                   <p className="text-4xl font-bold">
-                    {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                    <span className="text-base font-normal text-muted-foreground"> تومان/{isYearly ? 'سال' : 'ماه'}</span>
+                    {plan.monthlyPrice}
+                    <span className="text-base font-normal text-muted-foreground"> تومان/ماه</span>
                   </p>
                 </div>
                 <ul className="space-y-3">

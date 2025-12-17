@@ -126,7 +126,7 @@ const ContactForm = () => {
 
           <div className="animate-fade-in">
             <div className="bg-gradient-to-br from-secondary to-primary/10 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold mb-6">چرا منوی دیجیتال؟</h3>
+              <h3 className="text-2xl font-bold mb-6">چرا ملاین؟</h3>
               
               <div className="space-y-6">
                 <div className="flex">
